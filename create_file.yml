@@ -1,0 +1,11 @@
+---
+- name: Create a file with some content
+  hosts: all
+  become: yes
+  tasks:
+    - name: Create myapp.txt file with content
+      copy:
+        dest: /tmp/myapp.txt
+        content: |
+          Hello, this file was created by Ansible!
+
