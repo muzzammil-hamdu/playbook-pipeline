@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                  git url: 'https://github.com/muzzammil-hamdu/playbook-pipeline.git', branch: 'main'
+                  git branch: 'main' , url: 'https://github.com/muzzammil-hamdu/playbook-pipeline.git'
             }
         }
         stage('Run Ansible Playbook') {
