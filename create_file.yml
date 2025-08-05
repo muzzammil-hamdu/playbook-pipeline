@@ -5,7 +5,7 @@
   tasks:
     - name: Create myapp.txt file with content
       copy:
-        dest: /home/mujju/myapp.txt
+        dest: /home/hamdu/myapp.txt
         content: |
           Hello, this file was created by Ansible!
 
