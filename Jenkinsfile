@@ -11,7 +11,9 @@ pipeline {
         }
         stage('Run Ansible Playbook') {
             steps {
-                sh 'ansible-playbook -i inventory.ini create_file.yml'
+                sshagent(['vm1-key']) {
+                    sh 'ansible-playbook -i inventory.ini create_file.yml'
+                }
             }
         }
     }
