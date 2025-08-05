@@ -1,19 +1,14 @@
 pipeline {
     agent any
-    environment {
-        ANSIBLE_HOST_KEY_CHECKING = 'False'
-    }
     stages {
-        stage('Clone Repository') {
+        stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/muzzammil-hamdu/playbook-pipeline.git'
+               git url: 'https://github.com/muzzammil-hamdu/playbook-pipeline.git', branch: 'main'
             }
         }
         stage('Run Ansible Playbook') {
             steps {
-                sshagent(['vm1-key']) {
-                    sh 'ansible-playbook -i inventory.ini create_file.yml'
-                }
+                sh 'ansible-playbook -i inventory.ini create_file.yml'
             }
         }
     }
